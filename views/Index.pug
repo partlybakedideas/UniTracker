@@ -1,0 +1,116 @@
+head
+  link(rel='stylesheet' href="https://rsms.me/inter/inter.css")
+  link(rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css")
+  script(src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+  //link(rel='stylesheet' href="/style.css")
+body
+  nav.navbar.is-fixed-top(style="background-color:rgb(245,245,245);")
+    .container
+      .navbar-brand
+        a.navbar-item(href style='font-size:22.5px;font-weight:500;')
+          span UniTracker
+        span.navbar-burger.burger(data-target='navMenu')
+          span
+          span
+          span
+      #navMenu.navbar-menu
+        .navbar-end
+          //a.navbar-item.is-active(href='/' style="text-align:center;")
+            i.fas.fa-home
+          //a.navbar-item
+            i.fas.fa-comment-dots(href='/' style="text-align:center;")
+          a.navbar-item
+            i.fas.fa-address-card(href='/' style="text-align:center;")
+            | Profile
+          a.navbar-item
+            input(type="date" id="currentday" style="border-raius:10px;")
+          script.
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+            var months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+            console.log(mm);
+            var newtoday = months[parseInt(mm)] + " " + dd + ", " + yyyy;
+            today = yyyy + '-' + mm + '-' + dd;
+            console.log(today + ", " + newtoday);
+
+
+            var dateControl = document.querySelector('input[type="date"]');
+            dateControl.value = today;
+
+  br
+  br
+  div(class="columns")
+    
+    div(style="height:100vh; width:20%;background-color:rgb(240,240,240); display: flex;" class="column is-one-third")
+      center
+        div(style="padding:10px;" id="displaydata").title
+         | Loading...
+    div(style="display: flex;" class="column")
+      style.
+        .date{
+          background-color:rgb(236,236,236);
+          text-align:center;
+          height:75px;
+          text-align: center;
+          line-height: 75px;
+        }
+      table(class="table is-narrow is-hoverable is-fullwidth")
+        thead
+          tr
+            th Monday
+            th Tuesday
+            th Wendsday
+            th Thursday
+            th Friday
+            th Saturday
+            th Sunday
+        tbody
+          tr
+            td(id="1" class="date") 
+              center
+                | 1
+            td(id="2" class="date") 
+              center
+                | 2
+            td(id="3" class="date") 
+              center
+                | 3
+            td(id="4" class="date") 
+              center
+                | 4
+            td(id="5" class="date") 
+              center
+                | 5
+            td(id="6" class="date") 
+              center
+                | 6
+            td(id="7" class="date") 
+              center
+                | 7
+          tr
+            td(id="8" class="date") 
+              center
+                | 8
+            td(id="9" class="date") 
+              center
+                | 9
+            td(id="10" class="date") 
+              center
+                | 10
+            td(id="11" class="date") 
+              center
+                | 11
+            td(id="12" class="date") 
+              center
+                | 12
+            td(id="13" class="date") 
+              center
+                | 13
+            td(id="14" class="date") 
+              center
+                | 14
+  script.
+    var DateData = document.getElementById("displaydata");
+    DateData.innerHTML = newtoday;
